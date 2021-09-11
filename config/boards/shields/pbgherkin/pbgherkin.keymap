@@ -115,7 +115,7 @@
             combo_enter { timeout-ms = <50>; key-positions = <15 25>; bindings = <&kp ENTER>; layers = <BASE QWRTY NAV>; };
             combo_space { timeout-ms = <50>; key-positions = <16 26>; bindings = <&kp SPACE>; layers = <BASE QWRTY NAV KEYPD>; };
             combo_caps  { timeout-ms = <50>; key-positions = <19 29>; bindings = <&kp CAPS>;  layers = <BASE QWRTY>; };
-/*
+
             combo_f13   { timeout-ms = <50>; key-positions = < 0  1>; bindings = <&kp F13>;   layers = <FUNC>; };
             combo_f14   { timeout-ms = <50>; key-positions = < 1  2>; bindings = <&kp F14>;   layers = <FUNC>; };
             combo_f15   { timeout-ms = <50>; key-positions = < 2  3>; bindings = <&kp F15>;   layers = <FUNC>; };
@@ -128,7 +128,7 @@
             combo_f22   { timeout-ms = <50>; key-positions = <21 22>; bindings = <&kp F22>;   layers = <FUNC>; };
             combo_f23   { timeout-ms = <50>; key-positions = <22 23>; bindings = <&kp F23>;   layers = <FUNC>; };
             combo_f24   { timeout-ms = <50>; key-positions = <23 24>; bindings = <&kp F24>;   layers = <FUNC>; };
-
+/*
             combo_kpent { timeout-ms = <50>; key-positions = <15 25>; bindings = <&kp KP_ENTER>; layers = <KEYPD>; };
 
             combo_adjst { timeout-ms = <50>; key-positions = <24 25>; bindings = <&mo ADJST>;    layers = <BASE QWRTY>; };
