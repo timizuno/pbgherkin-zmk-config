@@ -78,7 +78,7 @@
             combo_dqt   { timeout-ms = <50>; key-positions = < 6  7>; bindings = <&kp DQT>;   layers = <BASE QWRTY>; };
             combo_sqt   { timeout-ms = <50>; key-positions = < 7  8>; bindings = <&kp SQT>;   layers = <BASE QWRTY>; };
             combo_grave { timeout-ms = <50>; key-positions = < 8  9>; bindings = <&kp GRAVE>; layers = <BASE QWRTY>; };
-/*
+
             combo_hash  { timeout-ms = <50>; key-positions = <10 11>; bindings = <&kp HASH>;  layers = <BASE QWRTY>; };
             combo_equal { timeout-ms = <50>; key-positions = <11 12>; bindings = <&kp EQUAL>; layers = <BASE QWRTY>; };
             combo_minus { timeout-ms = <50>; key-positions = <12 13>; bindings = <&kp MINUS>; layers = <BASE QWRTY>; };
@@ -96,17 +96,17 @@
             combo_bslh  { timeout-ms = <50>; key-positions = <26 27>; bindings = <&kp BSLH>;  layers = <BASE QWRTY>; };
             combo_at    { timeout-ms = <50>; key-positions = <27 28>; bindings = <&kp AT>;    layers = <BASE QWRTY>; };
             combo_caret { timeout-ms = <50>; key-positions = <28 29>; bindings = <&kp CARET>; layers = <BASE QWRTY>; };
-            
-            combo_N7    { timeout-ms = <50>; key-positions = < 0 10>; bindings = <&kp N7>;    layers = <BASE QWRTY>; };
-            combo_N5    { timeout-ms = <50>; key-positions = < 1 11>; bindings = <&kp N5>;    layers = <BASE QWRTY>; };
-            combo_N3    { timeout-ms = <50>; key-positions = < 2 12>; bindings = <&kp N3>;    layers = <BASE QWRTY>; };
-            combo_N1    { timeout-ms = <50>; key-positions = < 3 13>; bindings = <&kp N1>;    layers = <BASE QWRTY>; };
-            combo_N9    { timeout-ms = <50>; key-positions = < 4 14>; bindings = <&kp N9>;    layers = <BASE QWRTY>; };
-            combo_N8    { timeout-ms = <50>; key-positions = < 5 15>; bindings = <&kp N8>;    layers = <BASE QWRTY>; };
-            combo_N0    { timeout-ms = <50>; key-positions = < 6 16>; bindings = <&kp N0>;    layers = <BASE QWRTY>; };
-            combo_N2    { timeout-ms = <50>; key-positions = < 7 17>; bindings = <&kp N2>;    layers = <BASE QWRTY>; };
-            combo_N4    { timeout-ms = <50>; key-positions = < 8 18>; bindings = <&kp N4>;    layers = <BASE QWRTY>; };
-            combo_N6    { timeout-ms = <50>; key-positions = < 9 19>; bindings = <&kp N6>;    layers = <BASE QWRTY>; };
+
+            combo_n7    { timeout-ms = <50>; key-positions = < 0 10>; bindings = <&kp N7>;    layers = <BASE QWRTY>; };
+            combo_n5    { timeout-ms = <50>; key-positions = < 1 11>; bindings = <&kp N5>;    layers = <BASE QWRTY>; };
+            combo_n3    { timeout-ms = <50>; key-positions = < 2 12>; bindings = <&kp N3>;    layers = <BASE QWRTY>; };
+            combo_n1    { timeout-ms = <50>; key-positions = < 3 13>; bindings = <&kp N1>;    layers = <BASE QWRTY>; };
+            combo_n9    { timeout-ms = <50>; key-positions = < 4 14>; bindings = <&kp N9>;    layers = <BASE QWRTY>; };
+            combo_n8    { timeout-ms = <50>; key-positions = < 5 15>; bindings = <&kp N8>;    layers = <BASE QWRTY>; };
+            combo_n0    { timeout-ms = <50>; key-positions = < 6 16>; bindings = <&kp N0>;    layers = <BASE QWRTY>; };
+            combo_n2    { timeout-ms = <50>; key-positions = < 7 17>; bindings = <&kp N2>;    layers = <BASE QWRTY>; };
+            combo_n4    { timeout-ms = <50>; key-positions = < 8 18>; bindings = <&kp N4>;    layers = <BASE QWRTY>; };
+            combo_n6    { timeout-ms = <50>; key-positions = < 9 19>; bindings = <&kp N6>;    layers = <BASE QWRTY>; };
 
             combo_esc   { timeout-ms = <50>; key-positions = <10 20>; bindings = <&kp ESC>;   layers = <BASE QWRTY>; };
             combo_del   { timeout-ms = <50>; key-positions = <12 22>; bindings = <&kp DEL>;   layers = <BASE QWRTY KEYPD>; };
@@ -115,7 +115,7 @@
             combo_enter { timeout-ms = <50>; key-positions = <15 25>; bindings = <&kp ENTER>; layers = <BASE QWRTY NAV>; };
             combo_space { timeout-ms = <50>; key-positions = <16 26>; bindings = <&kp SPACE>; layers = <BASE QWRTY NAV KEYPD>; };
             combo_caps  { timeout-ms = <50>; key-positions = <19 29>; bindings = <&kp CAPS>;  layers = <BASE QWRTY>; };
-
+/*
             combo_f13   { timeout-ms = <50>; key-positions = < 0  1>; bindings = <&kp F13>;   layers = <FUNC>; };
             combo_f14   { timeout-ms = <50>; key-positions = < 1  2>; bindings = <&kp F14>;   layers = <FUNC>; };
             combo_f15   { timeout-ms = <50>; key-positions = < 2  3>; bindings = <&kp F15>;   layers = <FUNC>; };
