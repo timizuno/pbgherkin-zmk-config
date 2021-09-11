@@ -204,9 +204,9 @@
 // | F9  | F10 | F11 | F12 |PrnSc|     | *** |     |     |     |
 // -------------------------------------------------------------
             bindings = <
-    &kp F1  &kp F2  &kp F3  &kp F4  &kp PAUSE_BREAK &trans  &trans   &trans   &kp C_SLEEP &kp C_POWER
-    &kp F5  &kp F6  &kp F7  &kp F8  &kp SLCK        &trans  &kp RSFT &kp RGUI &kp RALT    &kp RCTRL
-    &kp F9  &kp F10 &kp F11 &kp F12 &kp PSCRN       &trans  &trans   &trans   &trans      &trans
+    &kp F1  &kp F2  &kp F3  &kp F4  &kp PAUSE_BREAK &trans  &kp ZOOMIN &kp ZOOMOUT &kp C_SLEEP &kp C_POWER
+    &kp F5  &kp F6  &kp F7  &kp F8  &kp SLCK        &trans  &kp RSFT   &kp RGUI    &kp RALT    &kp RCTRL
+    &kp F9  &kp F10 &kp F11 &kp F12 &kp PSCRN       &trans  &trans     &trans      &trans      &trans
             >;
         };
 
