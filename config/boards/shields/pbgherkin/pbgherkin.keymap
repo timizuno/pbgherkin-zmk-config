@@ -67,6 +67,7 @@
 // | Esc |     | Del |BkSpc| Tab |Enter| Spc |     |     |CapLk|
 // |  *  |  *  |  *  |  *  |  *  |  *  |  *  |  *  |  *  |  *  |
 // -------------------------------------------------------------
+/*
         combos {
             compatible = "zmk,combos";
 
@@ -136,6 +137,7 @@
             combo_bt5   { timeout-ms = <50>; key-positions = < 7  8>; bindings = <&kp BT_SEL 5>; layers = <ADJST>; };
             combo_bt6   { timeout-ms = <50>; key-positions = < 8  9>; bindings = <&kp BT_SEL 6>; layers = <ADJST>; };
         };
+*/
     };
 
     keymap {
