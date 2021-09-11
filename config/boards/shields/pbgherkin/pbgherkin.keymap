@@ -18,13 +18,13 @@
 #define ADJST 5     // bluetooth & rgb
 
 // Special keys
-#define ZOOMOUT LA(LG(MINUS))
-#define ZOOMIN  LA(LG(EQUAL))
-#define UNDO    LG(Z)
-#define CUT     LG(X)
-#define COPY    LG(C)
-#define PASTE   LG(V)
-#define SELALL  LG(A)
+#define ZOOMOUT  LA(LG(MINUS))
+#define ZOOMIN   LA(LG(EQUAL))
+#define M_UNDO   LG(Z)
+#define M_CUT    LG(X)
+#define M_COPY   LG(C)
+#define M_PASTE  LG(V)
+#define M_SELALL LG(A)
 
 &lt {
     tapping-term-ms = <200>;
@@ -189,9 +189,9 @@
 // |     |     |     | *** |     | Esc |CapLk|Menu |     |     |
 // -------------------------------------------------------------
             bindings = <
-    &kp UNDO  &kp CUT  &kp COPY &kp PASTE &kp SELALL &kp INS  &kp PG_UP &kp UP      &kp PG_DN &kp DEL
-    &kp LCTRL &kp LALT &kp LGUI &kp LSFT  &trans     &kp HOME &kp LEFT  &kp DOWN    &kp RIGHT &kp END
-    &trans    &trans   &trans   &trans    &trans     &kp ESC  &kp CAPS  &kp K_CMENU &trans    &trans
+    &kp M_UNDO &kp M_CUT &kp M_COPY &kp M_PASTE &kp M_SELALL &kp INS  &kp PG_UP &kp UP      &kp PG_DN &kp DEL
+    &kp LCTRL  &kp LALT  &kp LGUI   &kp LSFT    &trans       &kp HOME &kp LEFT  &kp DOWN    &kp RIGHT &kp END
+    &trans     &trans    &trans     &trans      &trans       &kp ESC  &kp CAPS  &kp K_CMENU &trans    &trans
             >;
         };
 
