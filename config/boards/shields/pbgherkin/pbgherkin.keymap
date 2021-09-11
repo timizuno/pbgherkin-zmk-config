@@ -12,15 +12,19 @@
 
 #define BASE  0     // alphas (Colemak-DH)
 #define QWRTY 1     // alphas (Qwerty)
-#define SYMBL 2     // symbols (Left Raise)
-#define SYMBR 3     // symbols (Right Raise)
-#define NUM   4     // numbers (Left Lower)
-#define FUNC  5     // functions (Right Lower)
-#define NAV   6     // navigation
-#define FUNC2 7     // functions2
-#define KEYPD 8     // multimedia & keypad
-#define SPECL 9     // specials
-#define ADJST 10    // bluetooth & rgb
+#define NAV   2     // navigation
+#define FUNC  3     // functions
+#define KEYPD 4     // keypad & multimedia
+#define ADJST 5     // bluetooth & rgb
+
+// Special keys
+#define ZOOMOUT LA(LG(MINUS))
+#define ZOOMIN  LA(LG(EQUAL))
+#define UNDO    LG(Z)
+#define CUT     LG(X)
+#define COPY    LG(C)
+#define PASTE   LG(V)
+#define SELALL  LG(A)
 
 &lt {
     tapping-term-ms = <200>;
@@ -46,80 +50,91 @@
             bindings = <&kp>, <&kp>;
         };
 
-// (Combos)
+// (Horizontal Combos)
 // -------------------------------------------------------------
-// |     |<-- Esc -->|     |     |     |     |<-- Del -->|     |
-// |     |     |     |     |     |     |     |     |     |     |
-// |     |<-- Tab -->|     |     |     |     |<- Enter ->|     |
+// |  Q  ~  W  |  F  &  P  [  B     J  ]  L  "  U  '  Y  `  ;  |
+// |  A  #  R  =  S  -  T  (  G     M  )  N  _  E  *  I  $  O  |
+// |  Z  %  X  !  C  +  D  {  V     K  }  H  \  ,  @  .  ^  /  |
 // -------------------------------------------------------------
-// (Combos)
+// (Vertical Combos)
+// -------------------------------------------------------------
+// |  7  |  5  |  3  |  1  |  9  |  8  |  0  |  2  |  4  |  6  |
+// |  *  |  *  |  *  |  *  |  *  |  *  |  *  |  *  |  *  |  *  |
+// |     |     |     |     |     |     |     |     |     |     |
+// -------------------------------------------------------------
 // -------------------------------------------------------------
 // |     |     |     |     |     |     |     |     |     |     |
-// |     |     |     |     |     |     |     |     |     |     |
-// |     |     |<- BkSpc ->|<- ADJST ->|<- Space ->|     |     |
+// | Esc |     | Del |BkSpc| Tab |Enter| Spc |     |     |CapLk|
+// |  *  |  *  |  *  |  *  |  *  |  *  |  *  |  *  |  *  |  *  |
 // -------------------------------------------------------------
         combos {
             compatible = "zmk,combos";
-            combo_esc {
-                timeout-ms = <50>;
-                key-positions = <1 2>;
-                bindings = <&kp ESC>;
-                layers = <BASE QWRTY>;
-            };
-            combo_del {
-                timeout-ms = <50>;
-                key-positions = <7 8>;
-                bindings = <&kp DEL>;
-                layers = <BASE QWRTY SYMBL SYMBR NUM>;
-            };
-            combo_tab {
-                timeout-ms = <50>;
-                key-positions = <21 22>;
-                bindings = <&kp TAB>;
-                layers = <BASE QWRTY>;
-            };
-            combo_bspc {
-                timeout-ms = <50>;
-                key-positions = <22 23>;
-                bindings = <&kp BSPC>;
-                layers = <BASE QWRTY>;
-            };
-            combo_space {
-                timeout-ms = <50>;
-                key-positions = <26 27>;
-                bindings = <&kp SPACE>;
-                layers = <BASE QWRTY SYMBL NAV>;
-            };
-            combo_dot {
-                timeout-ms = <50>;
-                key-positions = <26 27>;
-                bindings = <&kp DOT>;
-                layers = <NUM>;
-            };
-            combo_enter {
-                timeout-ms = <50>;
-                key-positions = <27 28>;
-                bindings = <&kp ENTER>;
-                layers = <BASE QWRTY SYMBL NUM NAV>;
-            };
-            combo_kp_dot {
-                timeout-ms = <50>;
-                key-positions = <26 27>;
-                bindings = <&kp KP_DOT>;
-                layers = <KEYPD>;
-            };
-            combo_kp_enter {
-                timeout-ms = <50>;
-                key-positions = <27 28>;
-                bindings = <&kp KP_ENTER>;
-                layers = <KEYPD>;
-            };
-            combo_adjst {
-                timeout-ms = <50>;
-                key-positions = <24 25>;
-                bindings = <&mo ADJST>;
-                layers = <BASE QWRTY>;
-            };
+
+            combo_tilde { timeout-ms = <50>; key-positions = < 0  1>; bindings = <&kp TILDE>; layers = <BASE QWRTY>; };
+            combo_pipe  { timeout-ms = <50>; key-positions = < 1  2>; bindings = <&kp PIPE>;  layers = <BASE QWRTY>; };
+            combo_amps  { timeout-ms = <50>; key-positions = < 2  3>; bindings = <&kp AMPS>;  layers = <BASE QWRTY>; };
+            combo_lbkt  { timeout-ms = <50>; key-positions = < 3  4>; bindings = <&kp LBKT>;  layers = <BASE QWRTY>; };
+            combo_rbkt  { timeout-ms = <50>; key-positions = < 5  6>; bindings = <&kp RBKT>;  layers = <BASE QWRTY>; };
+            combo_dqt   { timeout-ms = <50>; key-positions = < 6  7>; bindings = <&kp DQT>;   layers = <BASE QWRTY>; };
+            combo_sqt   { timeout-ms = <50>; key-positions = < 7  8>; bindings = <&kp SQT>;   layers = <BASE QWRTY>; };
+            combo_grave { timeout-ms = <50>; key-positions = < 8  9>; bindings = <&kp GRAVE>; layers = <BASE QWRTY>; };
+
+            combo_hash  { timeout-ms = <50>; key-positions = <10 11>; bindings = <&kp HASH>;  layers = <BASE QWRTY>; };
+            combo_equal { timeout-ms = <50>; key-positions = <11 12>; bindings = <&kp EQUAL>; layers = <BASE QWRTY>; };
+            combo_minus { timeout-ms = <50>; key-positions = <12 13>; bindings = <&kp MINUS>; layers = <BASE QWRTY>; };
+            combo_lpar  { timeout-ms = <50>; key-positions = <13 14>; bindings = <&kp LPAR>;  layers = <BASE QWRTY>; };
+            combo_rpar  { timeout-ms = <50>; key-positions = <15 16>; bindings = <&kp RPAR>;  layers = <BASE QWRTY>; };
+            combo_under { timeout-ms = <50>; key-positions = <16 17>; bindings = <&kp UNDER>; layers = <BASE QWRTY>; };
+            combo_star  { timeout-ms = <50>; key-positions = <17 18>; bindings = <&kp STAR>;  layers = <BASE QWRTY>; };
+            combo_dllr  { timeout-ms = <50>; key-positions = <18 19>; bindings = <&kp DLLR>;  layers = <BASE QWRTY>; };
+
+            combo_prcnt { timeout-ms = <50>; key-positions = <20 21>; bindings = <&kp PRCNT>; layers = <BASE QWRTY>; };
+            combo_excl  { timeout-ms = <50>; key-positions = <21 22>; bindings = <&kp EXCL>;  layers = <BASE QWRTY>; };
+            combo_plus  { timeout-ms = <50>; key-positions = <22 23>; bindings = <&kp PLUS>;  layers = <BASE QWRTY>; };
+            combo_lbrc  { timeout-ms = <50>; key-positions = <23 24>; bindings = <&kp LBRC>;  layers = <BASE QWRTY>; };
+            combo_rbrc  { timeout-ms = <50>; key-positions = <25 26>; bindings = <&kp RBRC>;  layers = <BASE QWRTY>; };
+            combo_bslh  { timeout-ms = <50>; key-positions = <26 27>; bindings = <&kp BSLH>;  layers = <BASE QWRTY>; };
+            combo_at    { timeout-ms = <50>; key-positions = <27 28>; bindings = <&kp AT>;    layers = <BASE QWRTY>; };
+            combo_caret { timeout-ms = <50>; key-positions = <28 29>; bindings = <&kp CARET>; layers = <BASE QWRTY>; };
+            
+            combo_N7    { timeout-ms = <50>; key-positions = < 0 10>; bindings = <&kp N7>;    layers = <BASE QWRTY>; };
+            combo_N5    { timeout-ms = <50>; key-positions = < 1 11>; bindings = <&kp N5>;    layers = <BASE QWRTY>; };
+            combo_N3    { timeout-ms = <50>; key-positions = < 2 12>; bindings = <&kp N3>;    layers = <BASE QWRTY>; };
+            combo_N1    { timeout-ms = <50>; key-positions = < 3 13>; bindings = <&kp N1>;    layers = <BASE QWRTY>; };
+            combo_N9    { timeout-ms = <50>; key-positions = < 4 14>; bindings = <&kp N9>;    layers = <BASE QWRTY>; };
+            combo_N8    { timeout-ms = <50>; key-positions = < 5 15>; bindings = <&kp N8>;    layers = <BASE QWRTY>; };
+            combo_N0    { timeout-ms = <50>; key-positions = < 6 16>; bindings = <&kp N0>;    layers = <BASE QWRTY>; };
+            combo_N2    { timeout-ms = <50>; key-positions = < 7 17>; bindings = <&kp N2>;    layers = <BASE QWRTY>; };
+            combo_N4    { timeout-ms = <50>; key-positions = < 8 18>; bindings = <&kp N4>;    layers = <BASE QWRTY>; };
+            combo_N6    { timeout-ms = <50>; key-positions = < 9 19>; bindings = <&kp N6>;    layers = <BASE QWRTY>; };
+
+            combo_esc   { timeout-ms = <50>; key-positions = <10 20>; bindings = <&kp ESC>;   layers = <BASE QWRTY>; };
+            combo_del   { timeout-ms = <50>; key-positions = <12 22>; bindings = <&kp DEL>;   layers = <BASE QWRTY KEYPD>; };
+            combo_bspc  { timeout-ms = <50>; key-positions = <13 23>; bindings = <&kp BSPC>;  layers = <BASE QWRTY KEYPD>; };
+            combo_tab   { timeout-ms = <50>; key-positions = <14 24>; bindings = <&kp TAB>;   layers = <BASE QWRTY KEYPD>; };
+            combo_enter { timeout-ms = <50>; key-positions = <15 25>; bindings = <&kp ENTER>; layers = <BASE QWRTY NAV>; };
+            combo_space { timeout-ms = <50>; key-positions = <16 26>; bindings = <&kp SPACE>; layers = <BASE QWRTY NAV KEYPD>; };
+            combo_caps  { timeout-ms = <50>; key-positions = <19 29>; bindings = <&kp CAPS>;  layers = <BASE QWRTY>; };
+
+            combo_f13   { timeout-ms = <50>; key-positions = < 0  1>; bindings = <&kp F13>;   layers = <FUNC>; };
+            combo_f14   { timeout-ms = <50>; key-positions = < 1  2>; bindings = <&kp F14>;   layers = <FUNC>; };
+            combo_f15   { timeout-ms = <50>; key-positions = < 2  3>; bindings = <&kp F15>;   layers = <FUNC>; };
+            combo_f16   { timeout-ms = <50>; key-positions = < 3  4>; bindings = <&kp F16>;   layers = <FUNC>; };
+            combo_f17   { timeout-ms = <50>; key-positions = <10 11>; bindings = <&kp F17>;   layers = <FUNC>; };
+            combo_f18   { timeout-ms = <50>; key-positions = <11 12>; bindings = <&kp F18>;   layers = <FUNC>; };
+            combo_f19   { timeout-ms = <50>; key-positions = <12 13>; bindings = <&kp F19>;   layers = <FUNC>; };
+            combo_f20   { timeout-ms = <50>; key-positions = <13 14>; bindings = <&kp F20>;   layers = <FUNC>; };
+            combo_f21   { timeout-ms = <50>; key-positions = <20 21>; bindings = <&kp F21>;   layers = <FUNC>; };
+            combo_f22   { timeout-ms = <50>; key-positions = <21 22>; bindings = <&kp F22>;   layers = <FUNC>; };
+            combo_f23   { timeout-ms = <50>; key-positions = <22 23>; bindings = <&kp F23>;   layers = <FUNC>; };
+            combo_f24   { timeout-ms = <50>; key-positions = <23 24>; bindings = <&kp F24>;   layers = <FUNC>; };
+
+            combo_kpent { timeout-ms = <50>; key-positions = <15 25>; bindings = <&kp KP_ENTER>; layers = <KEYPD>; };
+
+            combo_adjst { timeout-ms = <50>; key-positions = <24 25>; bindings = <&mo ADJST>;    layers = <BASE QWRTY>; };
+            combo_bt4   { timeout-ms = <50>; key-positions = < 6  7>; bindings = <&bt BT_SEL 4>; layers = <ADJST>; };
+            combo_bt5   { timeout-ms = <50>; key-positions = < 7  8>; bindings = <&kp BT_SEL 5>; layers = <ADJST>; };
+            combo_bt6   { timeout-ms = <50>; key-positions = < 8  9>; bindings = <&kp BT_SEL 6>; layers = <ADJST>; };
         };
     };
 
@@ -131,7 +146,7 @@
 // -------------------------------------------------------------
 // |     |     |     |     |     |     |     |     |     |     |
 // |Ctrl | Alt | Gui |Shift|     |     |Shift| Gui | Alt |Ctrl |
-// |KEYPD| NAV | NUM |SYMBL|LShft|RShft|SYMBR|FUNC |FUNC2|SPECL|
+// |KEYPD|     |     | NAV |LShft|RShft|FUNC |     |     |     |
 // -------------------------------------------------------------
 // Colemak-DH
 // -------------------------------------------------------------
@@ -140,9 +155,9 @@
 // |  Z  |  X  |  C  |  D  |  V  |  K  |  H  |  ,  |  .  |  /  |
 // -------------------------------------------------------------
             bindings = < 
-    &kp Q       &kp W      &kp F      &kp P       &kp B       &kp J       &kp L       &kp U          &kp Y         &kp SEMI
-    &hm LCTRL A &hm LALT R &hm LGUI S &hm LSFT T  &kp G       &kp M       &hm RSFT N  &hm RGUI E     &hm RALT I    &hm RCTRL O
-    &lt KEYPD Z &lt NAV X  &lt NUM C  &lt SYMBL D &mt LSFT V  &mt RSFT K  &lt SYMBR H &lt FUNC COMMA &lt FUNC2 DOT &lt SPECL FSLH
+    &kp Q       &kp W      &kp F      &kp P      &kp B      &kp J       &kp L      &kp U      &kp Y      &kp SEMI
+    &hm LCTRL A &hm LALT R &hm LGUI S &hm LSFT T &kp G      &kp M       &hm RSFT N &hm RGUI E &hm RALT I &hm RCTRL O
+    &lt KEYPD Z &kp X      &kp C      &lt NAV D  &mt LSFT V &mt RSFT K  &lt FUNC H &kp COMMA  &kp DOT    &kp FSLH
             >;
         } ;
 
@@ -151,7 +166,7 @@
 // -------------------------------------------------------------
 // |     |     |     |     |     |     |     |     |     |     |
 // |Ctrl | Alt | Gui |Shift|     |     |Shift| Gui | Alt |Ctrl |
-// |KEYPD| NAV | NUM |SYMBL|LShft|RShft|SYMBR|FUNC |FUNC2|SPECL|
+// |KEYPD|     |     | NAV |LShft|RShft|FUNC |     |     |     |
 // -------------------------------------------------------------
 // Qwerty
 // -------------------------------------------------------------
@@ -160,133 +175,57 @@
 // |  Z  |  X  |  C  |  V  |  B  |  N  |  M  |  ,  |  .  |  /  |
 // -------------------------------------------------------------
             bindings = < 
-    &kp Q       &kp W      &kp E      &kp R       &kp T       &kp Y       &kp U       &kp I          &kp O         &kp P
-    &hm LCTRL A &hm LALT S &hm LGUI D &hm LSFT F  &kp G       &kp H       &hm RSFT J  &hm RGUI K     &hm RALT L    &hm RCTRL SEMI
-    &lt KEYPD Z &lt NAV X  &lt NUM C  &lt SYMBL V &mt LSFT B  &mt RSFT N  &lt SYMBR M &lt FUNC COMMA &lt FUNC2 DOT &lt SPECL FSLH
+    &kp Q       &kp W      &kp E      &kp R      &kp T      &kp Y       &kp U      &kp I      &kp O      &kp P
+    &hm LCTRL A &hm LALT S &hm LGUI D &hm LSFT F &kp G      &kp H       &hm RSFT J &hm RGUI K &hm RALT L &hm RCTRL SEMI
+    &lt KEYPD Z &kp X      &kp C      &lt NAV V  &mt LSFT B &mt RSFT N  &lt FUNC M &kp COMMA  &kp DOT    &kp FSLH
             >;
         } ;
 
-        symbL_layer {
-// Symbols
+        nav_layer {
+// Navigation
 // -------------------------------------------------------------
-// |  ~  |  |  |  &  |  [  |     |     |  ]  |  "  |  '  |  `  |
-// |  #  |  =  |  -  |  (  |     |     |  )  |  _  |  *  |  $  |
-// |  %  |  !  |  +  | *** |     |     |  }  |  \  |  @  |  ^  |
-// -------------------------------------------------------------
-            bindings = <
-    &kp TILDE &kp PIPE  &kp AMPS  &kp LBKT  &trans  &trans  &kp RBKT  &kp DQT   &kp SQT   &kp GRAVE 
-    &kp HASH  &kp EQUAL &kp MINUS &kp LPAR  &trans  &trans  &kp RPAR  &kp UNDER &kp STAR  &kp DLLR
-    &kp PRCNT &kp EXCL  &kp PLUS  &trans    &trans  &trans  &kp RBRC  &kp BSLH  &kp AT    &kp CARET
-            >;
-        };
-
-        symbR_layer {
-// Symbols
-// -------------------------------------------------------------
-// |  ~  |  |  |  &  |  [  |     |     |  ]  |  "  |  '  |  `  |
-// |  #  |  =  |  -  |  (  |     |     |  )  |  _  |  *  |  $  |
-// |  %  |  !  |  +  |  {  |     |     | *** |  \  |  @  |  ^  |
+// |Undo | Cut |Copy |Paste|SeAll| Ins |PgUp | Up  |PgDn | Del |
+// |LCTRL|LALT |LGUI |LSFT |     |Home |Left |Down |Right| End |
+// |     |     |     | *** |     | Esc |CapLk|Menu |     |     |
 // -------------------------------------------------------------
             bindings = <
-    &kp TILDE &kp PIPE  &kp AMPS  &kp LBKT  &trans  &trans  &kp RBKT  &kp DQT   &kp SQT   &kp GRAVE 
-    &kp HASH  &kp EQUAL &kp MINUS &kp LPAR  &trans  &trans  &kp RPAR  &kp UNDER &kp STAR  &kp DLLR
-    &kp PRCNT &kp EXCL  &kp PLUS  &kp LBRC  &trans  &trans  &trans    &kp BSLH  &kp AT    &kp CARET
-            >;
-        };
-
-        num_layer {
-// Numbers
-// -------------------------------------------------------------
-// |     |     |     |     |     |  :  |  7  |  8  |  9  |  *  |
-// |     |     |     |     |  .  |  -  |  4  |  5  |  6  |  +  |
-// |     |     | *** |     |Enter|  0  |  1  |  2  |  3  |  /  |
-// -------------------------------------------------------------
-// (Combos)
-// -------------------------------------------------------------
-// |     |     |     |     |     |     |     |     |     |     |
-// |     |     |     |     |     |     |     |     |     |     |
-// |     |     |     |     |     |     |<--  .  -->|     |     |
-// -------------------------------------------------------------
-            bindings = <
-    &trans  &trans  &trans  &trans  &trans    &kp COLON &kp N7  &kp N8  &kp N9  &kp STAR
-    &trans  &trans  &trans  &trans  &kp DOT   &kp MINUS &kp N4  &kp N5  &kp N6  &kp PLUS
-    &trans  &trans  &trans  &trans  &kp ENTER &kp N0    &kp N1  &kp N2  &kp N3  &kp FSLH
+    &kp UNDO  &kp CUT  &kp COPY &kp PASTE &kp SELALL &kp INS  &kp PG_UP &kp UP      &kp PG_DN &kp DEL
+    &kp LCTRL &kp LALT &kp LGUI &kp LSFT  &trans     &kp HOME &kp LEFT  &kp DOWN    &kp RIGHT &kp END
+    &trans    &trans   &trans   &trans    &trans     &kp ESC  &kp CAPS  &kp K_CMENU &trans    &trans
             >;
         };
 
         func_layer {
 // Functions
 // -------------------------------------------------------------
-// | F1  | F2  | F3  | F4  |Pause|     |     |     |     |     |
-// | F5  | F6  | F7  | F8  |ScrLk|     |     |     |     |     |
-// | F9  | F10 | F11 | F12 |PrnSc|     |     | *** |     |     |
+// | F1  | F2  | F3  | F4  |Pause|     |Zoom-|Zoom+|Sleep|Power|
+// | F5  | F6  | F7  | F8  |ScrLk|     |RSFT |RGUI |RALT |RCTRL|
+// | F9  | F10 | F11 | F12 |PrnSc|     | *** |     |     |     |
 // -------------------------------------------------------------
             bindings = <
-    &kp F1  &kp F2  &kp F3  &kp F4  &kp PAUSE_BREAK &trans  &trans  &trans  &trans  &trans
-    &kp F5  &kp F6  &kp F7  &kp F8  &kp SLCK        &trans  &trans  &trans  &trans  &trans
-    &kp F9  &kp F10 &kp F11 &kp F12 &kp PSCRN       &trans  &trans  &trans  &trans  &trans
-            >;
-        };
-
-        nav_layer {
-// Navigation
-// -------------------------------------------------------------
-// |     |     |     |     |     | Ins |PgUp | Up  |PgDn | Del |
-// |     |     |     |     |     |Home |Left |Down |Right| End |
-// |     | *** |     |     |     | Esc |CapLk|Menu |     |     |
-// -------------------------------------------------------------
-            bindings = <
-    &trans  &trans  &trans  &trans  &trans  &kp INS  &kp PG_UP &kp UP      &kp PG_DN &kp DEL
-    &trans  &trans  &trans  &trans  &trans  &kp HOME &kp LEFT  &kp DOWN    &kp RIGHT &kp END
-    &trans  &trans  &trans  &trans  &trans  &kp ESC  &kp CAPS  &kp K_CMENU &trans    &trans
-            >;
-        };
-
-        func2_layer {
-// Functions2
-// -------------------------------------------------------------
-// | F13 | F14 | F15 | F16 |     |     |     |     |     |     |
-// | F17 | F18 | F19 | F20 |     |     |     |     |     |     |
-// | F21 | F22 | F23 | F24 |     |     |     |     | *** |     |
-// -------------------------------------------------------------
-            bindings = <
-    &kp F13 &kp F14 &kp F15 &kp F16 &trans &trans  &trans  &trans  &trans  &trans
-    &kp F17 &kp F18 &kp F19 &kp F20 &trans &trans  &trans  &trans  &trans  &trans
-    &kp F21 &kp F22 &kp F23 &kp F24 &trans &trans  &trans  &trans  &trans  &trans
+    &kp F1  &kp F2  &kp F3  &kp F4  &kp PAUSE_BREAK &trans  &trans   &trans   &kp C_SLEEP &kp C_POWER
+    &kp F5  &kp F6  &kp F7  &kp F8  &kp SLCK        &trans  &kp RSFT &kp RGUI &kp RALT    &kp RCTRL
+    &kp F9  &kp F10 &kp F11 &kp F12 &kp PSCRN       &trans  &trans   &trans   &trans      &trans
             >;
         };
 
         keypd_layer {
-// Multimedia & Keypad
-// -------------------------------------------------------------
-// |Eject|Rewnd|     |FFwd |NumLk|  =  |  7  |  8  |  9  |  *  |
-// |     |Prev |Play |Next |  .  |  -  |  4  |  5  |  6  |  +  |
-// | *** |Vol- |Mute |Vol+ |Enter|  0  |  1  |  2  |  3  |  /  |
-// -------------------------------------------------------------
-// (Combos)
+// Keypad & Multimedia
+// (Hold)
 // -------------------------------------------------------------
 // |     |     |     |     |     |     |     |     |     |     |
-// |     |     |     |     |     |     |     |     |     |     |
-// |     |     |     |     |     |     |<--  .  -->|     |     |
+// |Ctrl | Alt | Gui |Shift|     |     |     |     |     |     |
+// | *** |     |     |     |     |     |     |     |     |     |
+// -------------------------------------------------------------
+// -------------------------------------------------------------
+// |Eject|Rewnd|Stop |FFwd |NumLk|  =  |  7  |  8  |  9  |  *  |
+// |     |Prev |Play |Next |  *  |  -  |  4  |  5  |  6  |  +  |
+// | *** |Vol- |Mute |Vol+ |  .  |  0  |  1  |  2  |  3  |  /  |
 // -------------------------------------------------------------
             bindings = <
-    &kp C_EJECT &kp C_RW     &trans     &kp C_FF     &kp KP_NUM   &kp KP_EQUAL &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp KP_MULTIPLY
-    &trans      &kp C_PREV   &kp C_PP   &kp C_NEXT   &kp KP_DOT   &kp KP_MINUS &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp KP_PLUS
-    &trans      &kp C_VOL_DN &kp K_MUTE &kp C_VOL_UP &kp KP_ENTER &kp KP_N0    &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_DIVIDE
-            >;
-        };
-
-        specl_layer {
-// Specials
-// -------------------------------------------------------------
-// |Power|PrnSc|ScrLk|Pause|     |     |     |     |     |     |
-// |Sleep|     |     |     |     |     |     |     |     |     |
-// |     |     |     |     |     |     |     |     |     | *** |
-// -------------------------------------------------------------
-            bindings = <
-    &kp C_POWER &kp PSCRN &kp SLCK &kp PAUSE_BREAK &trans &trans &trans &trans &trans &trans
-    &kp C_SLEEP &trans    &trans   &trans          &trans &trans &trans &trans &trans &trans
-    &trans      &trans    &trans   &trans          &trans &trans &trans &trans &trans &trans
+    &kp C_EJECT &kp C_RW        &kp C_STOP    &kp C_FF        &kp KP_NUM      &kp KP_EQUAL &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp KP_MULTIPLY
+    &mo LCTRL   &hm LALT C_PREV &hm LGUI C_PP &hm LSFT C_NEXT &kp KP_MULTIPLY &kp KP_MINUS &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp KP_PLUS
+    &trans      &kp C_VOL_DN    &kp K_MUTE    &kp C_VOL_UP    &kp KP_DOT      &kp KP_N0    &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_DIVIDE
             >;
         };
 
