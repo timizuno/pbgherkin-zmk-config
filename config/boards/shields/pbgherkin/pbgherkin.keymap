@@ -67,7 +67,6 @@
 // | Esc |     | Del |BkSpc| Tab |Enter| Spc |     |     |CapLk|
 // |  *  |  *  |  *  |  *  |  *  |  *  |  *  |  *  |  *  |  *  |
 // -------------------------------------------------------------
-/*
         combos {
             compatible = "zmk,combos";
 
@@ -79,7 +78,7 @@
             combo_dqt   { timeout-ms = <50>; key-positions = < 6  7>; bindings = <&kp DQT>;   layers = <BASE QWRTY>; };
             combo_sqt   { timeout-ms = <50>; key-positions = < 7  8>; bindings = <&kp SQT>;   layers = <BASE QWRTY>; };
             combo_grave { timeout-ms = <50>; key-positions = < 8  9>; bindings = <&kp GRAVE>; layers = <BASE QWRTY>; };
-
+/*
             combo_hash  { timeout-ms = <50>; key-positions = <10 11>; bindings = <&kp HASH>;  layers = <BASE QWRTY>; };
             combo_equal { timeout-ms = <50>; key-positions = <11 12>; bindings = <&kp EQUAL>; layers = <BASE QWRTY>; };
             combo_minus { timeout-ms = <50>; key-positions = <12 13>; bindings = <&kp MINUS>; layers = <BASE QWRTY>; };
@@ -136,8 +135,8 @@
             combo_bt4   { timeout-ms = <50>; key-positions = < 6  7>; bindings = <&bt BT_SEL 4>; layers = <ADJST>; };
             combo_bt5   { timeout-ms = <50>; key-positions = < 7  8>; bindings = <&kp BT_SEL 5>; layers = <ADJST>; };
             combo_bt6   { timeout-ms = <50>; key-positions = < 8  9>; bindings = <&kp BT_SEL 6>; layers = <ADJST>; };
-        };
 */
+        };
     };
 
     keymap {
