@@ -8,6 +8,8 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
+#include <dt-bindings/zmk/rgb.h>
+#include <dt-bindings/zmk/backlight.h>
 
 #define BASE  0     // alphas (Colemak-DH)
 #define QWRTY 1     // alphas (Qwerty)
@@ -153,8 +155,7 @@
             combo_next  { timeout-ms = <50>; key-positions = <13 14>; bindings = <&kp C_NEXT>;  layers = <MEDIA>; };
 
 
-// Bluetooth & 
-(Horizontal Combos)
+// Bluetooth & RGB (Horizontal Combos)
 // -------------------------------------------------------------
 // |     |     |     |     |     |     |    BT4   BT5   BT6    |
 // |     |     |     |     |     |     |     |     |     |     |
@@ -288,7 +289,19 @@
     &bl BL_DEC   &none        &none   &none   &none      &none      &to BASE     &to QWRTY    &to HNSDN    &none
     &out OUT_USB &out OUT_BLE &none   &trans  &none      &none      &trans       &none        &reset       &bootloader
             >;
-
+/*
+//  v----------- RGB -----------v
+// -------------------------------------------------------------
+// |Bri+ |Sat+ |Hue+ |Ani+ |Toggl|BTClr| BT0 | BT1 | BT2 | BT3 |
+// |Bri- |Sat- |Hue- |Ani- |BLtog|     |Colmk|Qwrty|HnsDn|     |
+// | USB | BLE |     | *** |     |     | *** |     |Reset|BootL|
+// -------------------------------------------------------------
+            bindings = <
+    &rgb_ug RGB_BRI &rgb_ug RGB_SAI &rgb_ug RGB_HUI &rgb_ug RGB_EFF &rgb_ug RGB_TOG &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3
+    &rgb_ug RGB_BRD &rgb_ug RGB_SAD &rgb_ug RGB_HUD &rgb_ug RGB_EFR &bl BL_TOG      &none      &to BASE     &to QWRTY    &to HNSDN    &none
+    &out OUT_USB    &out OUT_BLE    &none           &trans          &none           &none      &trans       &none        &reset       &bootloader
+            >;
+*/
         };
     };
 };
